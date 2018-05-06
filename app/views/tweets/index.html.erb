@@ -11,9 +11,18 @@
 		</p>
 		<div class="d-flex">
 			<div class="flex-grow-1">
-				<a href="#" class="p-2" data-toggle="tooltip" data-placement="top" title="「いいね」を取り消す" ><i class="fas fa-heart unlike-button"></i></a>
+				<% if Like.find_by(user_id: @current_user, tweet_id: tweet.id) %>
+					<%= link_to("/likes/#{tweet.id}/destroy", {method: "post", data:{toggle: "tooltip", placement: "top", title: "「いいね」を取り消す" }}) do %>	
+						<i class="fas fa-heart unlike-button"></i>
+					<% end %>
+				<% else %>
+					<%= link_to("/likes/#{tweet.id}/create", {method: "post", data:{toggle: "tooltip", placement: "top", title: "「いいね」する" }}) do %>	
+						<i class="fas fa-heart like-button"></i>
+					<% end %>
+				<% end %>
+				<span class="pr-2"><%= Like.where(tweet_id: tweet.id).count %></span>
 				<small class="text-secondary"><%= tweet.updated_at %></small>
-			</div>
+			</div>			
 
 			<% if tweet.user_id == @current_user.id %>
 			<!-- ログインしているユーザーのツイートにだけ表示させる -->

@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 	post 'users/create' => 'users#create'
 	get 'users/create' => 'users#top'
 	post 'users/logout' => 'users#logout'
+	get 'users/:id/likes' => 'users#user_likes'
 	get 'users/:id' => 'users#user_info'
+	
+	
 
 	get 'tweets' => 'tweets#index'
 	get 'tweets/new' => 'tweets#new'
@@ -14,6 +17,8 @@ Rails.application.routes.draw do
 	post 'tweets/:id/update' => 'tweets#update'
 	post 'tweets/:id/destroy' => 'tweets#destroy'
 	
+	post 'likes/:tweet_id/create' => 'likes#create'
+	post 'likes/:tweet_id/destroy' => 'likes#destroy'
 
 	# get '*not_found' => 'users#redirect'
 	# post '*not_found' => 'users#redirect'

@@ -28,10 +28,10 @@
 						<%= link_to("#{@current_user.name}", "/users/#{@current_user.id}", {class: "nav-link"}) %>
 					</li>
 					<li class="nav-item">
-						<%= link_to("つぶやく", "/tweets/new", {class: "nav-link"}) %>
-					</li>
+						<a href="/tweets" class="nav-link"><i class="fas fa-home"></i>ホーム</a>
+					</li>					</li>
 					<li class="nav-item">
-						<%= link_to("つぶやき一覧", "/tweets", {class: "nav-link"}) %>
+						<%= link_to("つぶやく", "/tweets/new", {class: "nav-link"}) %>
 					</li>
 					<li class="nav-item">
 						<%= link_to("ログアウト", "/users/logout", {class: "nav-link", method: :post}) %>
