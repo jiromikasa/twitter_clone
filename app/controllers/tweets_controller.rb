@@ -1,7 +1,16 @@
 class TweetsController < ApplicationController
 	
 	before_action :authenticate_user
+	before_action :ensure_correct_user, {only:[:edit, :update, :destroy]}
 	
+	def ensure_correct_user
+		@tweet = Tweet.find_by(id: params[:id])
+		if @tweet.user_id != @current_user.id
+			flash[:notice] = "権限がありません"
+			redirect_to("/tweets")
+		end
+	end
+
 	def index
 		@tweets = Tweet.all.order(created_at: :desc)
 	end
@@ -12,7 +21,7 @@ class TweetsController < ApplicationController
 	
 	def create
 		@tweet = Tweet.new(
-			user_id: 1,
+			user_id: session[:user_id],
 			content: params[:content]
 			)
 		if @tweet.save

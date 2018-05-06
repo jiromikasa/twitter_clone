@@ -1,12 +1,17 @@
 class UsersController < ApplicationController
 
 	before_action :authenticate_user, {only:[:user_info, :logout]}
+	before_action :forbid_login_user, {only:[:signup, :create, :login]}
 
 	def top
 		@user = User.new
+		if @current_user != nil
+			redirect_to("/tweets")
+		end
 	end
 
 	def user_info
+		@user = User.find_by(id: params[:id])
 	end
 
 	def signup

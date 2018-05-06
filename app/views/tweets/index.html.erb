@@ -1,10 +1,10 @@
 <% @tweets.each do |tweet| %>
 
-<div class="card mt-3 mx-auto center-block tweets-card">
+<div class="card center-block tweets-card">
 	<div class="card-body">
 		<div class="d-flex align-items-center">
 			<img src="https://avatars3.githubusercontent.com/u/38857700?s=460&v=4" class="img-thumnail rounded-circle mb-2 border" width="50">
-			<p class="h6 pl-2">ユーザ名</p>
+			<p class="h6 pl-2"><%= link_to("#{tweet.user.name}", "/user/#{tweet.user.id}", {class: "text-muted"}) %></p>
 		</div>
 		<p class="card-text">
 			<%= tweet.content %>
@@ -14,6 +14,9 @@
 				<a href="#" class="p-2" data-toggle="tooltip" data-placement="top" title="「いいね」を取り消す" ><i class="fas fa-heart unlike-button"></i></a>
 				<small class="text-secondary"><%= tweet.updated_at %></small>
 			</div>
+
+			<% if tweet.user_id == @current_user.id %>
+			<!-- ログインしているユーザーのツイートにだけ表示させる -->
 			<div class="dropdown">
 				<button class="btn btn-secondary pt-0 pb-0 btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					<i class="fas fa-ellipsis-h"></i>
@@ -23,6 +26,8 @@
 					<%= link_to("削除", "/tweets/#{tweet.id}/destroy", {class: "dropdown-item", method: :post}) %>
 				</div>
 			</div>
+			<% end %>
+
 		</div>
 	</div>
 </div>
