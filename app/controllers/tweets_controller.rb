@@ -4,6 +4,9 @@ class TweetsController < ApplicationController
 	end
 	
 	def create
+		@tweet = Tweet.new(user_id: 1, content: params[:content])
+		@tweet.save
+		redirect_to("/tweets")
 	end
 
 end

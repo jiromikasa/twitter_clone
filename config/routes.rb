@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 	get 'users/:id' => 'users#user_info'
 
 	get 'tweets' => 'tweets#index'
-	get 'tweets/:id/create' => 'tweets#create'
-	post 'tweets/:id/create' => 'tweets#create'
+	get 'tweets/new' => 'tweets#new'
+	post 'tweets/create' => 'tweets#create'
 
 	# get '*not_found' => 'users#redirect'
 	# post '*not_found' => 'users#redirect'

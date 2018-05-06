@@ -1,0 +1,8 @@
+<div class="text-center form-tweets-create mx-auto">
+	<%= form_tag("/tweets/create") do %>
+		<div class="form-group">
+			<textarea class="form-control" name="content" rows="4" placeholder="※140文字以内でつぶやいてください"></textarea>
+		</div>
+		<input type="submit" class="btn btn-primary" value="つぶやく">
+	<% end %>
+</div>
