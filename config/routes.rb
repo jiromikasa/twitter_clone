@@ -1,3 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+	get 'users/top' => 'users#top'
+	post 'users/login' => 'users#login'	
+	get 'users/signup' => 'users#signup'
+	post 'users/new' => 'users#new'
+	get 'users/:id' => 'users#user_info'
+
+	get 'tweets' => 'tweets#index'
+	get 'tweets/:id/create' => 'tweets#create'
+	
+
+	# get '*not_found' => 'users#redirect'
+	# post '*not_found' => 'users#redirect'
+
+	root to: 'users#top'
+
 end

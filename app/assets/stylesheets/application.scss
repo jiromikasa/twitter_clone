@@ -12,5 +12,7 @@
  *
  */
 
- @import "bootstrap"
+ @import "bootstrap";
  //= require bootstrap
+
+ @import "partials/*"; // glob importing

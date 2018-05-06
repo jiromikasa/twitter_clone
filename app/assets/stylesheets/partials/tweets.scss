@@ -1,0 +1,19 @@
+.tweets-card{
+	width: 400px;
+	.dropdown-menu{
+		min-width: 3rem !important;
+	}
+	.btn-secondary{
+		background-color: #fff;
+		border: 1px solid #aaa;
+		color: #6c757d;
+	}
+}
+
+.like-button{
+	color: #6c757d;
+}
+
+.unlike-button{
+	color: #e0245e;
+}
