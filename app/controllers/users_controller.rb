@@ -6,9 +6,22 @@ class UsersController < ApplicationController
 	end
 
 	def signup
+		@user =User.new
 	end
 
-	def new
+	def create
+		@user = User.new(
+			name: params[:name],
+			email: params[:email],
+			password: params[:password]
+		)
+
+		if @user.save
+			flash[:notice] = "ユーザー登録が完了しました。"
+			redirect_to("/tweets")
+		else
+			render("users/signup")
+		end
 	end
 
 	def redirect

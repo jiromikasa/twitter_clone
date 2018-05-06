@@ -34,5 +34,8 @@ ja:
   models:
   attributes:
     user:
+      name: ユーザーネーム
+      email: メールアドレス
+      password: パスワード
     tweet:
-        content: ツイート内容
+      content: ツイート内容

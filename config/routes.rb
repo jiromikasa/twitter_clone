@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 	get 'users/top' => 'users#top'
 	post 'users/login' => 'users#login'	
 	get 'users/signup' => 'users#signup'
-	post 'users/new' => 'users#new'
+	post 'users/create' => 'users#create'
+	get 'users/create' => 'users#top'
 	get 'users/:id' => 'users#user_info'
 
 	get 'tweets' => 'tweets#index'
