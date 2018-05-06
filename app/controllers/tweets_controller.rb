@@ -20,4 +20,26 @@ class TweetsController < ApplicationController
 		end
 	end
 
+	def edit
+		@tweet = Tweet.find_by(id: params[:id])
+	end
+
+	def update
+		@tweet = Tweet.find_by(id: params[:id])
+		@tweet.content = params[:content]
+		if @tweet.save
+			flash[:notice] = "つぶやきを変更しました。"
+			redirect_to("/tweets")
+		else
+			render("tweets/#{params[:id]}/edit")
+		end
+	end
+
+	def destroy
+		@tweet = Tweet.find_by(id: params[:id])
+		@tweet.destroy
+		flash[:notice] = "つぶやきを削除しました。"
+		redirect_to("/tweets")
+	end
+
 end

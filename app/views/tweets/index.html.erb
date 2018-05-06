@@ -19,8 +19,8 @@
 					<i class="fas fa-ellipsis-h"></i>
 				</button>
 				<div class="dropdown-menu tweet-menu" aria-labelledby="dropdownMenuButton">
-					<a class="dropdown-item" href="#">編集</a>
-					<a class="dropdown-item" href="#">削除</a>
+					<%= link_to("編集", "/tweets/#{tweet.id}/edit", {class: "dropdown-item"}) %>
+					<%= link_to("削除", "/tweets/#{tweet.id}/destroy", {class: "dropdown-item", method: :post}) %>
 				</div>
 			</div>
 		</div>

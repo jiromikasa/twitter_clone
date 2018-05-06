@@ -34,7 +34,5 @@ ja:
   models:
   attributes:
     user:
-    name: 名前
     tweet:
         content: ツイート内容
-    email: メールアドレス
