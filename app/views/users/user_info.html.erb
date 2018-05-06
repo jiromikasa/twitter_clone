@@ -3,14 +3,22 @@
 	<p class="h5"><%= @user.name %></p>
 </div>
 
+<ul class="nav nav-tabs user_info_nav">
+  <li class="nav-item">
+    <span class="nav-link active" href="#">つぶやき一覧</span>
+  </li>
+  <li class="nav-item">
+		<%= link_to("いいね一覧", "users/#{@user.id}/likes", {class: "nav-link disabled"}) %>
+  </li>
+</ul>
 
-<% @tweets.each do |tweet| %>
+<% @user.tweets.each do |tweet| %>
 
 <div class="card center-block tweets-card">
 	<div class="card-body">
 		<div class="d-flex align-items-center">
 			<img src="https://avatars3.githubusercontent.com/u/38857700?s=460&v=4" class="img-thumnail rounded-circle mb-2 border" width="50">
-			<p class="h6 pl-2"><%= tweet.user.name %></p>
+			<p class="h6 pl-2"><%= link_to("#{tweet.user.name}", "/users/#{tweet.user.id}", {class: "text-muted"}) %></p>
 		</div>
 		<p class="card-text">
 			<%= tweet.content %>
@@ -39,3 +47,4 @@
 </div>
 
 <% end %>
+
