@@ -8,12 +8,9 @@
 	
 	<%= form_tag("/users/create") do %>
 	<form class="form-signin">
-		<p class ="mb-0 text-left">ユーザーネーム</p>
-		<input name="name" class="form-control mb-3 mt-0" placeholder="ユーザーネーム" value="<%= @user.name %>" autofocus>
-		<p class ="mb-0 text-left">メールアドレス</p>
-		<input name="email" class="form-control mb-3 mt-0" placeholder="メールアドレス" value="<%= @user.email %>">
-		<p class ="mb-0 text-left">パスワード</p>
-		<input name="password" class="form-control mb-3 mt-0" placeholder="パスワード" value="<%= @user.password %>">
+		<input name="name" type="name" class="form-control mb-3 mt-0" placeholder="ユーザーネーム" value="<%= @user.name %>" autofocus>
+		<input name="email" type="name" class="form-control mb-3 mt-0" placeholder="メールアドレス" value="<%= @user.email %>">
+		<input name="password" type="password" class="form-control mb-3 mt-0" placeholder="パスワード" value="<%= @user.password %>">
 		<input class="btn btn-lg btn-success btn-block" type="submit" value="新規登録">
 	</form>
 	<% end %>
