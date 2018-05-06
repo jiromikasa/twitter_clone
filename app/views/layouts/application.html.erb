@@ -8,28 +8,33 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
 
   <body>
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 			<%= link_to("TwitterClone", "/", {class: "navbar-brand"}) %>
-		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-			<ul class="navbar-nav">
-				<li class="nav-item">
-					<a class="nav-link" href="/tweets/1/create">新規投稿</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/tweets">投稿一覧</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/users/1">ユーザ詳細</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/">ログアウト</a>
-				</li>
-			</ul>
-		</div>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="/tweets/1/create">新規投稿</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/tweets">投稿一覧</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/users/1">ユーザ詳細</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/">ログアウト</a>
+					</ul>
+			</div>
+		</nav>
 	</header>
     <%= yield %>
   </body>
