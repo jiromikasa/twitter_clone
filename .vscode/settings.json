@@ -1,0 +1,15 @@
+{
+
+	"ruby.lint": {
+		"ruby": {
+				"unicode": true //Runs ruby -wc -Ku
+		},
+		"rubocop": {
+				"only": ["SpaceInsideBlockBraces", "LeadingCommentSpace"],
+				"lint": true,
+				"rails": true
+		},
+		"reek": true
+	}
+	
+}

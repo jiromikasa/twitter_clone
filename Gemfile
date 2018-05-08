@@ -66,3 +66,8 @@ gem 'jquery-rails'
 
 # エラーメッセージの日本語化
 gem 'rails-i18n'
+
+# デバッグ用Gem
+
+gem 'ruby-debug-ide'
+gem 'debase'
