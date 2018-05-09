@@ -22,9 +22,6 @@ Rails.application.routes.draw do
 	post 'likes/:tweet_id/create' => 'likes#create'
 	post 'likes/:tweet_id/destroy' => 'likes#destroy'
 
-	# get '*not_found' => 'users#redirect'
-	# post '*not_found' => 'users#redirect'
-
 	root to: 'users#top'
 
 end

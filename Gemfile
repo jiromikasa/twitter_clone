@@ -67,7 +67,9 @@ gem 'jquery-rails'
 # エラーメッセージの日本語化
 gem 'rails-i18n'
 
-# デバッグ用Gem
-
+# デバッグ用
 gem 'ruby-debug-ide'
 gem 'debase'
+
+# パスワード暗号化
+gem 'bcrypt'

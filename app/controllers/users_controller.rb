@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
 	before_action :authenticate_user, {only:[:user_info, :logout]}
 	before_action :forbid_login_user, {only:[:signup, :create, :login]}
+	# before_action :ensure_correct_user, {only:[:edit, :update]}
 
 	def top
 		@user = User.new
@@ -65,12 +66,9 @@ class UsersController < ApplicationController
 	end
 
 	def login
-		@user = User.find_by(
-			email: params[:email],
-			password: params[:password]
-		)
+		@user = User.find_by(email: params[:email])
 
-		if @user
+		if @user &&	@user.authenticate(params[:password])
 			session[:user_id] = @user.id
 			flash[:notice] = "ログインしました。"
 			redirect_to("/tweets")
@@ -85,6 +83,13 @@ class UsersController < ApplicationController
 	def logout
 		session[:user_id] = nil
 		redirect_to("/")
+	end
+
+	def ensure_correct_user
+		if @current_user.id != params[:id].to_i
+      flash[:notice] = "権限がありません"
+      redirect_to("/")
+		end
 	end
 
 	def redirect
