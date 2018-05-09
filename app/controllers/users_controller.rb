@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
 	def user_info
 		@user = User.find_by(id: params[:id])
+		@tweets = Tweet.where(user_id: @user.id).order(created_at: :desc)
 	end
 
 	def likes
