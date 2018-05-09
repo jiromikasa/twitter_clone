@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 		@user = User.find_by(id: params[:id])
 	end
 
-	def user_likes
+	def likes
 		@user = User.find_by(id: params[:id])
 		@likes = Like.where(user_id: @user.id).order(created_at: :desc)
 	end
@@ -23,11 +23,36 @@ class UsersController < ApplicationController
 		@user =User.new
 	end
 
+	def edit
+		@user = User.find_by(id: params[:id])
+	end
+
+	def update
+		@user = User.find_by(id: params[:id])
+		@user.name = params[:name]
+		@user.email = params[:email]
+		@user.password = params[:password]
+
+		if params[:icon]
+			@user.icon_name = "#{@user.id}.jpg"
+			icon = params[:icon]
+			File.binwrite("public/user_images/#{@user.icon_name}", icon.read)
+		end
+
+		if @user.save
+			flash[:notice] = "プロフィールを変更しました。"
+			redirect_to("/users/#{@user.id}")
+		else
+			render("users/edit")
+		end
+	end
+
 	def create
 		@user = User.new(
 			name: params[:name],
 			email: params[:email],
-			password: params[:password]
+			password: params[:password],
+			icon_name: "default_icon.jpeg" 
 		)
 
 		if @user.save

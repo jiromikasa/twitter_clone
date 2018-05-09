@@ -3,7 +3,7 @@
 <div class="card center-block tweets-card">
 	<div class="card-body">
 		<div class="d-flex align-items-center">
-			<img src="https://avatars3.githubusercontent.com/u/38857700?s=460&v=4" class="img-thumnail rounded-circle mb-2 border" width="50">
+			<img src="<%= "/user_images/#{tweet.user.icon_name}" %>" class="img-thumnail rounded-circle mb-2 border" width="50" height="50">
 			<p class="h6 pl-2"><%= link_to("#{tweet.user.name}", "/users/#{tweet.user.id}", {class: "text-muted"}) %></p>
 		</div>
 		<p class="card-text">

@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 	post 'users/create' => 'users#create'
 	get 'users/create' => 'users#top'
 	post 'users/logout' => 'users#logout'
-	get 'users/:id/likes' => 'users#user_likes'
+	get 'users/:id/likes' => 'users#likes'
+	get 'users/:id/edit' => 'users#edit'
+	post 'users/:id/update' => 'users#update'
 	get 'users/:id' => 'users#user_info'
 	
 	

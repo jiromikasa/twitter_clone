@@ -1,6 +1,7 @@
 <div class="mx-auto text-center pt-4 mb-4">
-	<img src="https://avatars3.githubusercontent.com/u/38857700?s=460&v=4" class="img-thumnail rounded-circle mb-2 border" width="130">
-	<p class="h5"><%= @user.name %></p>
+	<img src="<%= "/user_images/#{@user.icon_name}" %>" class="img-thumnail rounded-circle mb-2 border" width="130" height="130">
+	<p class="h4"><%= @user.name %></p>
+	<%= link_to("プロフィールを編集", "/users/#{@user.id}/edit", {class: "btn btn-secondary mt-3 mb-4"}) %>
 </div>
 
 <ul class="nav nav-tabs user_info_nav">
@@ -17,7 +18,7 @@
 <div class="card center-block tweets-card">
 	<div class="card-body">
 		<div class="d-flex align-items-center">
-			<img src="https://avatars3.githubusercontent.com/u/38857700?s=460&v=4" class="img-thumnail rounded-circle mb-2 border" width="50">
+			<img src="<%= "/user_images/#{@tweet.user.icon_name}" %>" class="img-thumnail rounded-circle mb-2 border" width="50" height="50">
 			<p class="h6 pl-2"><%= link_to("#{@tweet.user.name}", "/users/#{@tweet.user.id}", {class: "text-muted"}) %></p>
 		</div>
 		<p class="card-text">

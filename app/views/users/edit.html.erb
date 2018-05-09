@@ -1,0 +1,19 @@
+<div class="form">
+	<!-- もしエラーメッセージがあれば表示 -->
+	<% @user.errors.full_messages.each do |message| %>	
+	<div class="alert alert-danger text-left" role="alert">
+			<%= message %>
+	</div>
+	<% end %>
+	
+	<%= form_tag("/users/#{@user.id}/update", {multipart: true}) do %>
+	<form class="form-signin">
+		<input name="name" type="name" class="form-control mb-3 mt-0" placeholder="ユーザーネーム" value="<%= @user.name %>" autofocus>
+		<input name="email" type="name" class="form-control mb-3 mt-0" placeholder="メールアドレス" value="<%= @user.email %>">
+		<input name="password" type="password" class="form-control mb-3 mt-0" placeholder="パスワード" value="<%= @user.password %>">
+		<div class="text-left m-0">アイコン画像</div>
+		<input name="icon" type="file" class="form-control mb-3 mt-0">
+		<input class="btn btn-lg btn-primary btn-block" type="submit" value="変更を保存">
+	</form>
+	<% end %>
+</div>
