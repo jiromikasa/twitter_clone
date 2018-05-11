@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 	before_action :authenticate_user, {only:[:user_info, :logout]}
 	before_action :forbid_login_user, {only:[:signup, :create, :login]}
-	# before_action :ensure_correct_user, {only:[:edit, :update]}
+	before_action :ensure_correct_user, {only:[:edit, :update]}
 
 	def top
 		@user = User.new
