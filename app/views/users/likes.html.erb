@@ -16,8 +16,11 @@
   </li>
 </ul>
 
-<% @likes.each do |like| %>
-<% @tweet = Tweet.find_by(id: like.tweet_id) %>
+<%# いいね数の降順で並び替えるための処理 %>
+<%# @likes_order: いいね数で降順に並び替えたtweet_idの配列 %>
+<% @likes_ordered_id.each do |id| %>
+<% if Like.find_by(user_id: @user.id, tweet_id:id)%>
+<% @tweet = Tweet.find(id) %>
 <div class="card center-block tweets-card">
 	<div class="card-body">
 		<div class="d-flex align-items-center">
@@ -53,6 +56,7 @@
 					<%= link_to("削除", "/tweets/#{@tweet.id}/destroy", {class: "dropdown-item", method: :post}) %>
 				</div>
 			</div>
+      <% end %>
 			<% end %>
 
 		</div>
