@@ -17,14 +17,8 @@ class UsersController < ApplicationController
 	end
 
 	def likes
-    @user = User.find_by(id: params[:id])
-    
-    # いいね数で降順にソートする場合は以下を使用
-    # ソート後、tweet_idを配列に変換して変数に渡している
-    @likes = Like.all.group(:tweet_id).order("count_all desc").count.keys
-
-    # ツイート作成日の降順にしたい場合は以下を使用する
-		# @likes = Like.where(user_id: @user.id).order(created_at: :desc)
+		@user = User.find_by(id: params[:id])
+		@likes = Like.where(user_id: @user.id).order(created_at: :desc)
 	end
 
 	def signup

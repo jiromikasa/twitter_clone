@@ -17,7 +17,7 @@
 </ul>
 
 <% @likes.each do |like| %>
-<% @tweet = Tweet.find_by(id: like) %>
+<% @tweet = Tweet.find_by(id: like.tweet_id) %>
 <div class="card center-block tweets-card">
 	<div class="card-body">
 		<div class="d-flex align-items-center">
