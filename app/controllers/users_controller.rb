@@ -18,9 +18,19 @@ class UsersController < ApplicationController
 
   def likes
     @user = User.find(params[:id])
-    
-    # いいね数で降順に並べ替えてtweet_idのみを配列に変換
-    @likes_ordered_id = Like.group(:tweet_id).order("count_all desc").count.keys
+    @tweets = Like.where(user_id: @user.id)
+
+    #いいね数の降順で並び替えるための処理
+    # tweet_idといいね数をハッシュへ代入
+    likes_hash = {}
+    @tweets.each do |tweet|
+      likes_count = Like.where(tweet_id: tweet.tweet_id).count
+      likes_hash.store(tweet.tweet_id, likes_count)
+    end
+  
+    # いいね数で降順に並び替えし、tweet_idのみを配列に変換
+    @likes_desc_ids = likes_hash.sort_by{ | k, v | v }.reverse.to_h.keys
+  
 
     # つぶやき日の降順で並び替える時は以下を使用
     # その場合はlikes.html.erbの編集が必要
