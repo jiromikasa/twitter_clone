@@ -39,7 +39,7 @@
 					<% end %>
 				<% end %>
 				<span class="pr-2"><%= Like.where(tweet_id: tweet.id).count %></span>
-				<small class="text-secondary"><%= tweet.updated_at %></small>
+				<small class="text-secondary"><%= tweet.created_at %></small>
 			</div>			
 
 			<% if tweet.user_id == @current_user.id %>

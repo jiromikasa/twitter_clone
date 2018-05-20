@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @tweets = Like.where(user_id: @user.id)
 
-    #いいね数の降順で並び替えるための処理
+    # いいね数の降順で並び替えるための処理
     # tweet_idといいね数をハッシュへ代入
     likes_hash = {}
     @tweets.each do |tweet|
